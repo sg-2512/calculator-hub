@@ -1,18 +1,24 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const base = "https://calculator-hub-brown.vercel.app";
+
   return [
     {
-      url: 'https://calculator-hub-brown.vercel.app/',
+      url: `${base}/`,
       lastModified: new Date(),
     },
     {
-      url: 'https://calculator-hub-brown.vercel.app/calculators/battery-backup/',
+      url: `${base}/calculators/battery-backup`,
       lastModified: new Date(),
     },
     {
-      url: 'https://calculator-hub-brown.vercel.app/calculators/paint/',
+      url: `${base}/calculators/paint`,
       lastModified: new Date(),
     },
-  ]
+    {
+      url: `${base}/calculators/electricity`,
+      lastModified: new Date(),
+    },
+  ];
 }
