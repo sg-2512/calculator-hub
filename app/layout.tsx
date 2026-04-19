@@ -19,15 +19,60 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body className="bg-white text-gray-900">
+
+        {/* HEADER */}
+        <header className="border-b bg-white shadow-sm sticky top-0 z-50">
+  <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+    <h1 className="text-xl font-bold text-gray-900">
+      Calculator Hub
+    </h1>
+
+    <nav className="space-x-6 text-sm">
+      <a href="/" className="text-gray-700 hover:text-black font-medium">
+        Home
+      </a>
+      <a href="/calculators/battery-backup" className="text-gray-700 hover:text-black font-medium">
+        Battery
+      </a>
+      <a href="/calculators/paint" className="text-gray-700 hover:text-black font-medium">
+        Paint
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+        {/* PAGE CONTENT */}
+        <main>{children}</main>
+
+        {/* FOOTER */}
+        <footer className="border-t mt-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 py-8 text-sm text-gray-600">
+            <p className="font-semibold">Calculator Hub</p>
+            <p className="mt-2">
+              Free online tools for battery backup, electricity calculation, and home planning.
+            </p>
+
+            <div className="mt-4 space-x-4">
+              <a href="/" className="hover:underline">Home</a>
+              <a href="/calculators/battery-backup" className="hover:underline">Battery</a>
+              <a href="/calculators/paint" className="hover:underline">Paint</a>
+            </div>
+
+            <p className="mt-4 text-xs">
+              © {new Date().getFullYear()} Calculator Hub
+            </p>
+          </div>
+        </footer>
+
+      </body>
     </html>
   );
 }
