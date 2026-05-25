@@ -1,156 +1,100 @@
-export default function Home() {
-  const calculators = [
-    {
-      title: "Battery Backup Calculator",
-      link: "/calculators/battery-backup",
-      desc: "Calculate inverter battery backup time accurately"
-    },
-    {
-      title: "Paint Calculator",
-      link: "/calculators/paint",
-      desc: "Estimate how much paint is needed for walls"
-    },
-    {
-      title: "Electricity Bill Calculator",
-      link: "/calculators/electricity",
-      desc: "Calculate your monthly electricity cost"
-    },
-    {
-      title: "Room Lighting Calculator",
-      link: "/calculators/lighting",
-      desc: "Find ideal lighting requirements for your room"
-    }
-  ];
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { calculators, categoryLabels } from '@/lib/registry'
 
+export const metadata: Metadata = {
+  title: 'CalcHub India — Free Financial Calculators for EMI, SIP, Tax & More',
+  description: 'India\'s most accurate free financial calculators. Calculate EMI, SIP returns, income tax, GST, salary take-home, PPF, FD maturity and more — instantly.',
+}
+
+const categories = ['loan', 'investment', 'tax', 'salary', 'utility']
+
+const categoryColors: Record<string, string> = {
+  loan: 'bg-blue-50 text-blue-700 border-blue-100',
+  investment: 'bg-emerald-50 text-emerald-700 border-emerald-100',
+  tax: 'bg-purple-50 text-purple-700 border-purple-100',
+  salary: 'bg-orange-50 text-orange-700 border-orange-100',
+  utility: 'bg-gray-50 text-gray-700 border-gray-200',
+}
+
+const categoryHero: Record<string, { bg: string; desc: string }> = {
+  loan: { bg: 'from-blue-600 to-blue-700', desc: 'EMI, eligibility & prepayment' },
+  investment: { bg: 'from-emerald-600 to-emerald-700', desc: 'SIP, FD, PPF & mutual funds' },
+  tax: { bg: 'from-purple-600 to-purple-700', desc: 'Income tax, GST & HRA' },
+  salary: { bg: 'from-orange-500 to-orange-600', desc: 'CTC, NPS & gratuity' },
+  utility: { bg: 'from-gray-600 to-gray-700', desc: 'CAGR, inflation & more' },
+}
+
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 px-4 py-12">
-        {/* SIDEBAR */}
-      <aside className="w-64 hidden md:block border-r pr-4">
-        <h2 className="font-semibold mb-4">Calculators</h2>
+    <div className="max-w-6xl mx-auto px-4 py-10">
 
-        <ul className="space-y-2 text-sm">
-          {calculators.map((calc, index) => (
-            <li key={index}>
-              <a
-                href={calc.link}
-                className="text-gray-700 hover:text-black hover:underline"
-              >
-                {calc.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      {/* MAIN CONTENT */}
-      <div className="flex-1">
-
-    
-      {/* HERO */}
-      <header className="text-center max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold leading-tight">
-          Free Online Home Utility Calculators
+      {/* Hero */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+          Free Financial Calculators<br />
+          <span className="text-blue-600">Built for India</span>
         </h1>
-
-        <p className="text-gray-600 mt-4 text-lg">
-          Use our simple and accurate calculators to estimate battery backup time,
-          electricity bills, paint requirements, and more for your home.
+        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+          Accurate, fast, and free. Calculate EMI, SIP returns, income tax, salary, and 15+ more — no signup required.
         </p>
-      </header>
+        <div className="mt-6 flex flex-wrap justify-center gap-2 text-sm text-gray-500">
+          <span className="bg-gray-50 px-3 py-1 rounded-full border">✓ New tax regime 2025-26</span>
+          <span className="bg-gray-50 px-3 py-1 rounded-full border">✓ Indian number format (Lakhs/Crores)</span>
+          <span className="bg-gray-50 px-3 py-1 rounded-full border">✓ Amortization schedules</span>
+          <span className="bg-gray-50 px-3 py-1 rounded-full border">✓ No signup needed</span>
+        </div>
+      </div>
 
-      {/* GRID */}
-      <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 max-w-6xl mx-auto">
+      {/* Categories with calculator grids */}
+      {categories.map(cat => {
+        const calcs = calculators.filter(c => c.category === cat)
+        if (!calcs.length) return null
+        const hero = categoryHero[cat]
+        return (
+          <section key={cat} className="mb-12">
+            <div className={`bg-gradient-to-r ${hero.bg} rounded-2xl px-6 py-4 mb-5 flex items-center justify-between`}>
+              <div>
+                <h2 className="text-white font-bold text-lg">{categoryLabels[cat]} Calculators</h2>
+                <p className="text-white/70 text-sm">{hero.desc}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {calcs.map(calc => (
+                <Link
+                  key={calc.slug}
+                  href={`/calculators/${calc.slug}`}
+                  className={`group flex flex-col gap-2 p-4 rounded-xl border transition-all hover:shadow-md hover:-translate-y-0.5 ${categoryColors[calc.category]}`}
+                >
+                  <span className="text-2xl">{calc.icon}</span>
+                  <span className="font-semibold text-sm leading-tight">{calc.title}</span>
+                  <span className="text-xs opacity-70 line-clamp-2">{calc.description.split('.')[0]}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )
+      })}
 
-        {calculators.map((calc, index) => (
-          <a
-            key={index}
-            href={calc.link}
-            className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition"
-          >
-            <h2 className="text-xl font-semibold">{calc.title}</h2>
-            <p className="text-gray-600 mt-2 text-sm">{calc.desc}</p>
-          </a>
-        ))}
-
-      </main>
-
-      {/* SEO CONTENT */}
-      <section className="max-w-4xl mx-auto mt-16 space-y-8 leading-relaxed">
-
-        <h2 className="text-2xl font-bold">
-          Smart Online Calculators for Everyday Home Needs
-        </h2>
-
-        <p>
-          Our platform provides a collection of <strong>free online calculators</strong> designed to solve common
-          household problems quickly and accurately. Whether you want to calculate inverter battery backup time,
-          estimate your electricity bill, or determine how much paint you need for your home, these tools are built
-          to give reliable results.
-        </p>
-
-        <p>
-          Many people search for terms like <strong>“battery backup calculator”</strong>,
-          <strong> “electricity bill calculator”</strong>, or
-          <strong> “paint coverage calculator”</strong> but end up using tools that provide inaccurate or oversimplified outputs.
-          Our calculators are designed with realistic formulas to ensure practical results you can actually rely on.
-        </p>
-
-        <h3 className="text-xl font-semibold">
-          Why Use Our Home Calculators?
-        </h3>
-
-        <ul className="list-disc ml-6 space-y-2">
-          <li>Accurate calculations based on real-world formulas</li>
-          <li>Simple and easy-to-use interface</li>
-          <li>Completely free with no signup required</li>
-          <li>Designed for students, homeowners, and professionals</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold">
-          Popular Calculators Available
-        </h3>
-
-        <p>
-          Our most used tools include:
-        </p>
-
-        <ul className="list-disc ml-6 space-y-2">
-          <li>
-            <strong>Battery Backup Calculator:</strong> Estimate how long your inverter battery will last based on load and capacity.
-          </li>
-          <li>
-            <strong>Electricity Bill Calculator:</strong> Calculate monthly power consumption and cost.
-          </li>
-          <li>
-            <strong>Paint Calculator:</strong> Find out how much paint is required for walls and rooms.
-          </li>
-          <li>
-            <strong>Room Lighting Calculator:</strong> Determine the right lighting level for different spaces.
-          </li>
-        </ul>
-
-        <h3 className="text-xl font-semibold">
-          Who Are These Calculators For?
-        </h3>
-
-        <p>
-          These tools are useful for homeowners planning renovations, students working on projects,
-          electricians estimating loads, and anyone looking to make informed decisions about energy usage and home improvement.
-        </p>
-
-        <h3 className="text-xl font-semibold">
-          How These Calculators Help You
-        </h3>
-
-        <p>
-          Instead of guessing or using rough estimates, these calculators provide structured outputs based on input values.
-          This helps in better planning, cost estimation, and efficient resource usage.
-        </p>
-
+      {/* Trust signals */}
+      <section className="mt-12 bg-gray-50 rounded-2xl p-8 text-center">
+        <h2 className="text-xl font-bold text-gray-900 mb-2">Why use CalcHub?</h2>
+        <p className="text-gray-500 text-sm mb-6">Built specifically for Indian financial requirements</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { icon: '🎯', title: 'Accurate formulas', desc: 'Based on RBI guidelines and Indian tax laws' },
+            { icon: '⚡', title: 'Instant results', desc: 'Real-time calculation as you type' },
+            { icon: '🆓', title: 'Always free', desc: 'No hidden fees, no signup required' },
+            { icon: '📱', title: 'Mobile friendly', desc: 'Works perfectly on any device' },
+          ].map(f => (
+            <div key={f.title}>
+              <div className="text-3xl mb-2">{f.icon}</div>
+              <h3 className="font-semibold text-sm text-gray-800 mb-1">{f.title}</h3>
+              <p className="text-xs text-gray-500">{f.desc}</p>
+            </div>
+          ))}
+        </div>
       </section>
-
     </div>
-
-  </div>
-  );
+  )
 }

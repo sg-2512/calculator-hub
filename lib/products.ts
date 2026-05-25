@@ -1,0 +1,86 @@
+import type { Product } from '@/types/calculator'
+
+export const products: Product[] = [
+  {
+    id: 'hdfc-home-loan',
+    name: 'HDFC Home Loan',
+    tagline: 'Rates from 8.35% p.a. | Approval in 5 days',
+    cta: 'Check eligibility',
+    href: 'https://www.hdfcbank.com/personal/borrow/popular-loans/home-loan',
+    badge: 'Lowest rate',
+    color: 'bg-blue-50',
+    highlightFor: ['emi-calculator'],
+  },
+  {
+    id: 'sbi-home-loan',
+    name: 'SBI Home Loan',
+    tagline: 'Rates from 8.40% | India\'s largest bank',
+    cta: 'Apply now',
+    href: 'https://homeloans.sbi/',
+    badge: 'Most trusted',
+    color: 'bg-sky-50',
+    highlightFor: ['emi-calculator'],
+  },
+  {
+    id: 'bajaj-finance',
+    name: 'Bajaj Personal Loan',
+    tagline: 'Up to ₹40L | Instant approval | 11% p.a.',
+    cta: 'Check offer',
+    href: 'https://www.bajajfinserv.in/personal-loan',
+    color: 'bg-orange-50',
+    highlightFor: ['emi-calculator'],
+  },
+  {
+    id: 'zerodha',
+    name: 'Zerodha',
+    tagline: 'India\'s #1 broker | ₹0 on equity delivery',
+    cta: 'Open free account',
+    href: 'https://zerodha.com/',
+    badge: '₹300 bonus',
+    color: 'bg-teal-50',
+    highlightFor: ['sip-calculator', 'lumpsum-calculator', 'cagr-calculator', 'ppf-calculator'],
+  },
+  {
+    id: 'groww',
+    name: 'Groww',
+    tagline: 'Start SIP from ₹100 | 1Cr+ investors',
+    cta: 'Start investing',
+    href: 'https://groww.in/',
+    badge: 'No commissions',
+    color: 'bg-green-50',
+    highlightFor: ['sip-calculator', 'lumpsum-calculator', 'rd-calculator', 'inflation-calculator'],
+  },
+  {
+    id: 'cleartax',
+    name: 'ClearTax',
+    tagline: 'File ITR in 5 mins | Free for salary income',
+    cta: 'File for free',
+    href: 'https://cleartax.in/',
+    badge: 'Free ITR filing',
+    color: 'bg-purple-50',
+    highlightFor: ['income-tax-calculator', 'gst-calculator', 'hra-calculator', 'salary-calculator', 'gratuity-calculator'],
+  },
+  {
+    id: 'hdfc-bank',
+    name: 'HDFC FD',
+    tagline: 'Up to 7.25% p.a. | Senior citizen extra 0.50%',
+    cta: 'Open FD online',
+    href: 'https://www.hdfcbank.com/personal/save/deposits/fixed-deposit',
+    color: 'bg-blue-50',
+    highlightFor: ['fd-calculator', 'rd-calculator', 'ppf-calculator'],
+  },
+  {
+    id: 'hdfc-nps',
+    name: 'HDFC Pension NPS',
+    tagline: 'Save ₹50K extra tax | 12% historical returns',
+    cta: 'Open NPS account',
+    href: 'https://nps.hdfcpension.com/',
+    badge: 'Extra ₹50K deduction',
+    color: 'bg-blue-50',
+    highlightFor: ['nps-calculator', 'income-tax-calculator'],
+  },
+]
+
+export function getProductsForCalculator(slug: string): Product[] {
+  return products.filter(p => p.highlightFor.includes(slug)).slice(0, 3)
+}
