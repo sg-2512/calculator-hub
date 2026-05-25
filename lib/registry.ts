@@ -20,6 +20,53 @@ export const calculators: CalculatorMeta[] = [
     ]
   },
   {
+    slug: 'car-loan-emi-calculator',
+    title: 'Car Loan EMI Calculator',
+    shortTitle: 'Car Loan',
+    description: 'Calculate EMI for your car loan. Compare banks and find the best car loan rate in India.',
+    category: 'loan',
+    icon: '🚗',
+    keywords: ['car loan emi calculator', 'auto loan calculator india', 'car loan interest calculator'],
+    relatedProducts: ['hdfc-home-loan', 'bajaj-finance'],
+    relatedCalculators: ['emi-calculator', 'personal-loan-emi-calculator', 'salary-calculator'],
+    faqs: [
+      { q: 'What is the average car loan interest rate in India?', a: 'Car loan interest rates in India typically range from 8.5% to 15% p.a. depending on the bank, your credit score, and the car model.' },
+      { q: 'How much car loan can I get on my salary?', a: 'Most banks offer car loans up to 85–90% of the car value. Your EMI should not exceed 40–50% of your net monthly income.' },
+    ]
+  },
+  {
+    slug: 'personal-loan-emi-calculator',
+    title: 'Personal Loan EMI Calculator',
+    shortTitle: 'Personal Loan',
+    description: 'Calculate EMI for personal loan. Instant result with full amortization breakdown.',
+    category: 'loan',
+    icon: '💳',
+    keywords: ['personal loan emi calculator', 'personal loan calculator india', 'personal loan interest calculator'],
+    relatedProducts: ['bajaj-finance', 'hdfc-home-loan'],
+    relatedCalculators: ['emi-calculator', 'salary-calculator', 'income-tax-calculator'],
+    faqs: [
+      { q: 'What is the interest rate on personal loans in India?', a: 'Personal loan rates range from 10.5% to 24% p.a. depending on your credit score and lender. NBFCs like Bajaj Finance offer quick approval.' },
+      { q: 'What is the maximum personal loan tenure?', a: 'Most banks offer personal loans for 1 to 5 years. Some NBFCs offer up to 7 years.' },
+    ]
+  },
+  {
+    slug: 'home-loan-eligibility-calculator',
+    title: 'Home Loan Eligibility Calculator',
+    shortTitle: 'Home Loan Eligibility',
+    description: 'Find out how much home loan you are eligible for based on your income, expenses and existing EMIs.',
+    category: 'loan',
+    icon: '🏡',
+    keywords: ['home loan eligibility calculator', 'home loan calculator india', 'how much home loan can i get'],
+    relatedProducts: ['hdfc-home-loan', 'sbi-home-loan'],
+    relatedCalculators: ['emi-calculator', 'salary-calculator', 'income-tax-calculator'],
+    faqs: [
+      { q: 'How is home loan eligibility calculated?', a: 'Banks typically allow total EMI obligations of 40–50% of net income. Eligibility = (Net monthly income × 0.5 − existing EMIs) × loan tenure factor.' },
+      { q: 'What documents are needed for a home loan?', a: 'Salary slips (3 months), Form 16, bank statements (6 months), ITR (2 years), PAN, Aadhaar, and property documents.' },
+    ]
+  },
+
+  // ── INVESTMENT ────────────────────────────────────────────────
+  {
     slug: 'sip-calculator',
     title: 'SIP Calculator',
     shortTitle: 'SIP',
@@ -27,7 +74,7 @@ export const calculators: CalculatorMeta[] = [
     category: 'investment',
     icon: '📈',
     keywords: ['sip calculator', 'sip returns calculator', 'mutual fund sip calculator india', 'monthly sip calculator'],
-    relatedProducts: ['zerodha', 'groww', 'coin-zerodha'],
+    relatedProducts: ['zerodha', 'groww'],
     relatedCalculators: ['lumpsum-calculator', 'ppf-calculator', 'emi-calculator'],
     faqs: [
       { q: 'What is SIP?', a: 'SIP (Systematic Investment Plan) lets you invest a fixed amount in mutual funds every month, building wealth through compounding over time.' },
@@ -59,7 +106,7 @@ export const calculators: CalculatorMeta[] = [
     category: 'investment',
     icon: '🏛️',
     keywords: ['ppf calculator', 'ppf maturity calculator', 'public provident fund calculator india'],
-    relatedProducts: ['hdfc-bank', 'sbi-ppf'],
+    relatedProducts: ['hdfc-bank'],
     relatedCalculators: ['fd-calculator', 'nps-calculator', 'sip-calculator'],
     faqs: [
       { q: 'What is the current PPF interest rate?', a: 'The current PPF interest rate is 7.1% per annum, compounded annually. It is declared by the Government of India every quarter.' },
@@ -75,7 +122,7 @@ export const calculators: CalculatorMeta[] = [
     category: 'investment',
     icon: '🏦',
     keywords: ['fd calculator', 'fixed deposit calculator', 'fd interest calculator india', 'bank fd calculator'],
-    relatedProducts: ['hdfc-bank', 'sbi-fd'],
+    relatedProducts: ['hdfc-bank'],
     relatedCalculators: ['rd-calculator', 'ppf-calculator', 'sip-calculator'],
     faqs: [
       { q: 'How is FD interest calculated?', a: 'FD interest = P × (1 + R/N)^(N×T) where P = principal, R = annual rate/100, N = compounding frequency per year, T = years.' },
@@ -90,12 +137,27 @@ export const calculators: CalculatorMeta[] = [
     category: 'investment',
     icon: '🔁',
     keywords: ['rd calculator', 'recurring deposit calculator', 'rd maturity calculator india'],
-    relatedProducts: ['hdfc-bank', 'sbi-rd'],
+    relatedProducts: ['hdfc-bank'],
     relatedCalculators: ['fd-calculator', 'sip-calculator', 'ppf-calculator'],
     faqs: [
       { q: 'What is the difference between RD and SIP?', a: 'RD is a bank product with fixed, guaranteed returns (typically 6–7%). SIP is a mutual fund product with market-linked, historically higher returns (12–15%).' },
     ]
   },
+  {
+    slug: 'cagr-calculator',
+    title: 'CAGR Calculator',
+    shortTitle: 'CAGR',
+    description: 'Calculate Compound Annual Growth Rate of any investment. Find CAGR from start and end values.',
+    category: 'investment',
+    icon: '📊',
+    keywords: ['cagr calculator', 'compound annual growth rate calculator', 'investment cagr calculator india'],
+    relatedProducts: ['zerodha', 'groww'],
+    relatedCalculators: ['sip-calculator', 'lumpsum-calculator', 'fd-calculator'],
+    faqs: [
+      { q: 'What is a good CAGR for investments?', a: 'Equity mutual funds: 12–15% CAGR is considered good. FDs: 6–7%. Real estate: 8–10% in India historically.' },
+    ]
+  },
+
   // ── TAX ───────────────────────────────────────────────────────
   {
     slug: 'income-tax-calculator',
@@ -105,7 +167,7 @@ export const calculators: CalculatorMeta[] = [
     category: 'tax',
     icon: '📋',
     keywords: ['income tax calculator', 'income tax calculator 2025-26', 'new tax regime calculator', 'old vs new tax regime'],
-    relatedProducts: ['cleartax', 'tax-spanner', 'zerodha-coin'],
+    relatedProducts: ['cleartax', 'hdfc-nps'],
     relatedCalculators: ['hra-calculator', 'salary-calculator', 'nps-calculator'],
     faqs: [
       { q: 'Which tax regime is better — old or new?', a: 'New regime is better if you have fewer deductions. If you claim 80C (₹1.5L), 80D, HRA, and home loan interest totalling ₹3L+, the old regime usually saves more tax.' },
@@ -121,7 +183,7 @@ export const calculators: CalculatorMeta[] = [
     category: 'tax',
     icon: '🧾',
     keywords: ['gst calculator', 'gst calculator india', 'add gst calculator', 'remove gst calculator'],
-    relatedProducts: ['cleartax', 'zoho-books'],
+    relatedProducts: ['cleartax'],
     relatedCalculators: ['income-tax-calculator', 'salary-calculator'],
     faqs: [
       { q: 'What are the GST rates in India?', a: 'GST rates are 0%, 5%, 12%, 18%, and 28%. Most services are at 18%. Essential goods are at 0–5%.' },
@@ -136,13 +198,29 @@ export const calculators: CalculatorMeta[] = [
     category: 'tax',
     icon: '🏡',
     keywords: ['hra calculator', 'hra exemption calculator', 'house rent allowance calculator india'],
-    relatedProducts: ['cleartax', 'housing-com'],
+    relatedProducts: ['cleartax'],
     relatedCalculators: ['income-tax-calculator', 'salary-calculator', 'emi-calculator'],
     faqs: [
       { q: 'How is HRA exemption calculated?', a: 'HRA exempt = minimum of: (1) actual HRA received, (2) rent paid − 10% of basic salary, (3) 50% of basic for metro cities or 40% for non-metro.' },
       { q: 'Is HRA available in new tax regime?', a: 'No — HRA exemption is only available under the old tax regime.' },
     ]
   },
+  {
+    slug: 'tds-calculator',
+    title: 'TDS Calculator',
+    shortTitle: 'TDS',
+    description: 'Calculate TDS deducted on salary, FD interest, rent, and professional fees as per latest rates.',
+    category: 'tax',
+    icon: '📑',
+    keywords: ['tds calculator', 'tds calculator india', 'tds on salary calculator', 'tds on fd interest'],
+    relatedProducts: ['cleartax'],
+    relatedCalculators: ['income-tax-calculator', 'gst-calculator', 'salary-calculator'],
+    faqs: [
+      { q: 'What is TDS?', a: 'TDS (Tax Deducted at Source) is tax deducted by the payer before making certain payments like salary, FD interest, rent, etc.' },
+      { q: 'What is the TDS rate on FD interest?', a: 'TDS is deducted at 10% if FD interest exceeds ₹40,000 per year (₹50,000 for senior citizens). Submit Form 15G/15H if income is below taxable limit.' },
+    ]
+  },
+
   // ── SALARY ────────────────────────────────────────────────────
   {
     slug: 'salary-calculator',
@@ -167,7 +245,7 @@ export const calculators: CalculatorMeta[] = [
     category: 'salary',
     icon: '👴',
     keywords: ['nps calculator', 'national pension scheme calculator', 'nps returns calculator india'],
-    relatedProducts: ['hdfc-nps', 'sbi-nps'],
+    relatedProducts: ['hdfc-nps'],
     relatedCalculators: ['ppf-calculator', 'income-tax-calculator', 'sip-calculator'],
     faqs: [
       { q: 'How much tax can I save with NPS?', a: 'Up to ₹2 lakh — ₹1.5L under 80C + extra ₹50,000 under 80CCD(1B). At 30% bracket this saves ₹62,400/year in taxes.' },
@@ -189,21 +267,23 @@ export const calculators: CalculatorMeta[] = [
       { q: 'Is gratuity taxable?', a: 'Gratuity up to ₹20 lakh is fully exempt from income tax for private sector employees under the Gratuity Act.' },
     ]
   },
-  // ── UTILITY ───────────────────────────────────────────────────
   {
-    slug: 'cagr-calculator',
-    title: 'CAGR Calculator',
-    shortTitle: 'CAGR',
-    description: 'Calculate Compound Annual Growth Rate of any investment. Find CAGR from start and end values.',
-    category: 'investment',
-    icon: '📊',
-    keywords: ['cagr calculator', 'compound annual growth rate calculator', 'investment cagr calculator india'],
-    relatedProducts: ['zerodha', 'groww'],
-    relatedCalculators: ['sip-calculator', 'lumpsum-calculator', 'fd-calculator'],
+    slug: 'pf-calculator',
+    title: 'PF / EPF Calculator',
+    shortTitle: 'PF / EPF',
+    description: 'Calculate your EPF corpus at retirement and monthly PF deductions from your salary.',
+    category: 'salary',
+    icon: '🏧',
+    keywords: ['pf calculator', 'epf calculator', 'provident fund calculator india', 'epf maturity calculator'],
+    relatedProducts: ['cleartax', 'hdfc-nps'],
+    relatedCalculators: ['salary-calculator', 'nps-calculator', 'ppf-calculator'],
     faqs: [
-      { q: 'What is a good CAGR for investments?', a: 'Equity mutual funds: 12–15% CAGR is considered good. FDs: 6–7%. Real estate: 8–10% in India historically.' },
+      { q: 'What is the current EPF interest rate?', a: 'The EPF interest rate for FY 2023-24 is 8.25% p.a., declared by EPFO annually.' },
+      { q: 'How much PF is deducted from salary?', a: 'Employee contributes 12% of basic salary. Employer also contributes 12% — of which 8.33% goes to EPS (pension) and 3.67% to EPF.' },
     ]
   },
+
+  // ── UTILITY ───────────────────────────────────────────────────
   {
     slug: 'inflation-calculator',
     title: 'Inflation Calculator',
@@ -216,6 +296,34 @@ export const calculators: CalculatorMeta[] = [
     relatedCalculators: ['sip-calculator', 'ppf-calculator', 'nps-calculator'],
     faqs: [
       { q: 'What is India\'s average inflation rate?', a: 'India\'s long-term average CPI inflation is around 5–6% per year. Recent years have seen 4–7%.' },
+    ]
+  },
+  {
+    slug: 'compound-interest-calculator',
+    title: 'Compound Interest Calculator',
+    shortTitle: 'Compound Interest',
+    description: 'Calculate compound interest for any principal, rate, and time period with monthly or yearly compounding.',
+    category: 'utility',
+    icon: '💹',
+    keywords: ['compound interest calculator', 'compound interest calculator india', 'ci calculator'],
+    relatedProducts: ['zerodha', 'hdfc-bank'],
+    relatedCalculators: ['fd-calculator', 'sip-calculator', 'cagr-calculator'],
+    faqs: [
+      { q: 'What is compound interest?', a: 'Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. Einstein called it the 8th wonder of the world.' },
+    ]
+  },
+  {
+    slug: 'simple-interest-calculator',
+    title: 'Simple Interest Calculator',
+    shortTitle: 'Simple Interest',
+    description: 'Calculate simple interest and total amount for any principal, rate and time period.',
+    category: 'utility',
+    icon: '🔢',
+    keywords: ['simple interest calculator', 'simple interest formula calculator', 'si calculator india'],
+    relatedProducts: [],
+    relatedCalculators: ['compound-interest-calculator', 'fd-calculator', 'emi-calculator'],
+    faqs: [
+      { q: 'What is the formula for simple interest?', a: 'Simple Interest = (Principal × Rate × Time) / 100. Total amount = Principal + Simple Interest.' },
     ]
   },
 ]
