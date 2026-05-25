@@ -69,7 +69,7 @@ export function LumpsumCalculator() {
             <AreaChart data={result.yearlyData}>
               <XAxis dataKey="year" tick={{ fontSize: 10 }} />
               <YAxis tickFormatter={v => formatINR(v).replace('₹', '')} tick={{ fontSize: 10 }} width={48} />
-              <Tooltip formatter={(v: number) => formatINR(v)} />
+              <Tooltip formatter={(v) => v != null ? formatINR(Number(v)) : ''} />
               <Area type="monotone" dataKey="value" name="Value" stroke="#2563eb" fill="#dbeafe" />
             </AreaChart>
           </ResponsiveContainer>

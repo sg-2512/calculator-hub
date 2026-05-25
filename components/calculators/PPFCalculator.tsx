@@ -66,7 +66,7 @@ export default function PPFCalculator() {
             <AreaChart data={result.yearlyData}>
               <XAxis dataKey="year" tick={{ fontSize: 10 }} />
               <YAxis tickFormatter={v => formatINR(v).replace('₹', '')} tick={{ fontSize: 10 }} width={48} />
-              <Tooltip formatter={(v: number) => formatINR(v)} />
+              <Tooltip formatter={(v) => v != null ? formatINR(Number(v)) : ''} />
               <Legend iconType="square" iconSize={10} />
               <Area type="monotone" dataKey="invested" name="Invested" stackId="1" stroke="#6ee7b7" fill="#d1fae5" />
               <Area type="monotone" dataKey="balance" name="Balance" stackId="2" stroke="#059669" fill="#6ee7b7" />

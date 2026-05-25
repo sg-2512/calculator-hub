@@ -44,7 +44,7 @@ export default function SIPCalculator() {
             <BarChart data={chartData} barSize={20}>
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tickFormatter={v => formatINR(v).replace('₹', '')} tick={{ fontSize: 10 }} width={50} />
-              <Tooltip formatter={(v: number) => formatINR(v)} />
+              <Tooltip formatter={(v) => v != null ? formatINR(Number(v)) : ''} />
               <Legend iconType="square" iconSize={10} />
               <Bar dataKey="invested" name="Invested" fill="#93c5fd" radius={[3, 3, 0, 0]} />
               <Bar dataKey="value" name="Value" fill="#2563eb" radius={[3, 3, 0, 0]} />

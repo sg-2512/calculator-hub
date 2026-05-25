@@ -73,7 +73,7 @@ export default function EMICalculator() {
                 <Cell fill="#2563eb" />
                 <Cell fill="#f97316" />
               </Pie>
-              <Tooltip formatter={(v: number) => formatINR(v)} />
+              <Tooltip formatter={(v) => v != null ? formatINR(Number(v)) : ''} />
               <Legend iconType="circle" iconSize={10} />
             </PieChart>
           </ResponsiveContainer>
